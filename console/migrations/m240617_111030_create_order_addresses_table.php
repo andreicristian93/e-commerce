@@ -6,7 +6,7 @@ use yii\db\Migration;
  * Handles the creation of table `{{%order_addresses}}`.
  * Has foreign keys to the tables:
  *
- * - `{{%user}}`
+ * - `{{%order}}`
  */
 class m240617_111030_create_order_addresses_table extends Migration
 {
@@ -16,8 +16,7 @@ class m240617_111030_create_order_addresses_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%order_addresses}}', [
-            'id' => $this->primaryKey(),
-            'user_id' => $this->integer(11)->notNull(),
+            'order_id' => $this->primaryKey(),
             'address' => $this->string(255)->notNull(),
             'city' => $this->string(255)->notNull(),
             'state' => $this->string(255)->notNull(),
@@ -25,19 +24,19 @@ class m240617_111030_create_order_addresses_table extends Migration
             'zipcode' => $this->string(255),
         ]);
 
-        // creates index for column `user_id`
+        // creates index for column `order_id`
         $this->createIndex(
-            '{{%idx-order_addresses-user_id}}',
+            '{{%idx-order_addresses-order_id}}',
             '{{%order_addresses}}',
-            'user_id'
+            'order_id'
         );
 
-        // add foreign key for table `{{%user}}`
+        // add foreign key for table `{{%order}}`
         $this->addForeignKey(
-            '{{%fk-order_addresses-user_id}}',
+            '{{%fk-order_addresses-order_id}}',
             '{{%order_addresses}}',
-            'user_id',
-            '{{%user}}',
+            'order_id',
+            '{{%order}}',
             'id',
             'CASCADE'
         );
@@ -48,15 +47,15 @@ class m240617_111030_create_order_addresses_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `{{%user}}`
+        // drops foreign key for table `{{%order}}`
         $this->dropForeignKey(
-            '{{%fk-order_addresses-user_id}}',
+            '{{%fk-order_addresses-order_id}}',
             '{{%order_addresses}}'
         );
 
-        // drops index for column `user_id`
+        // drops index for column `order_id`
         $this->dropIndex(
-            '{{%idx-order_addresses-user_id}}',
+            '{{%idx-order_addresses-order_id}}',
             '{{%order_addresses}}'
         );
 
