@@ -22,7 +22,7 @@ class m240627_074931_create_orders_table extends Migration
             'firstname' => $this->string(45)->notNull(),
             'lastname' => $this->string(45)->notNull(),
             'email' => $this->string(255)->notNull(),
-            'transaction_id' => $this->string255(),
+            'transaction_id' => $this->string(255),
             'created_at' => $this->integer(11),
             'created_by' => $this->integer(11),
         ]);

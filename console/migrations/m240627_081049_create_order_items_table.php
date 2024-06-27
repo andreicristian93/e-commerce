@@ -44,15 +44,15 @@ class m240627_081049_create_order_items_table extends Migration
 
         // creates index for column `order_id`
         $this->createIndex(
-            '{{%idx-orders-order_id}}',
-            '{{%orders}}',
+            '{{%idx-order_items-order_id}}',
+            '{{%order_items}}',
             'order_id'
         );
 
         // add foreign key for table `{{%orders}}`
         $this->addForeignKey(
-            '{{%fk-orders-order_id}}',
-            '{{%orders}}',
+            '{{%fk-orders_items-order_id}}',
+            '{{%order_items}}',
             'order_id',
             '{{%orders}}',
             'id',
