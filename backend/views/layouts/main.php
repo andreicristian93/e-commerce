@@ -57,25 +57,21 @@ AppAsset::register($this);
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
 
 
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href=" <?php echo \yii\helpers\Url::to(['/product/index']) ?>">
+                <a class="nav-link" href="<?php echo \yii\helpers\Url::to(['/product/index']) ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Watches</span></a>
+                    <span>Products</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Watches Brands</span></a>
+                    <span>Products Categories</span></a>
             </li>
 
             <!-- Divider -->
@@ -298,7 +294,12 @@ AppAsset::register($this);
 
                 </nav>
                 <!-- End of Topbar -->
+
+            <div class="p-3">
+
                 <?php echo $content ?>
+
+            </div>
 
             </div>
             <!-- End of Main Content -->
